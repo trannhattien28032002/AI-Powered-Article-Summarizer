@@ -1,0 +1,272 @@
+🔥 AI-Powered Article Summarizer - Full Detailed Plan
+1. Tổng quan dự án
+Mục tiêu: Xây dựng nền tảng tóm tắt bài viết AI hỗ trợ đa ngôn ngữ, có dashboard người dùng, API cho devs, và mô hình kinh doanh subscription.
+Công nghệ cốt lõi:
+Frontend: Next.js + TailwindCSS + Chakra UI
+Backend: Node.js (NestJS) + FastAPI (Python)
+Database: PostgreSQL + MongoDB + Redis
+AI Engine: OpenAI API + LangChain + HuggingFace Models
+DevOps: Kubernetes (EKS/GKE/AKS) + ArgoCD + Istio + Terraform
+2. Nghiệp vụ & Công nghệ
+2.1 Người dùng & phân quyền
+🛠 Công nghệ: NestJS + PostgreSQL + JWT + OAuth2 + Keycloak
+✅ Guest Users
+
+Gửi link bài viết hoặc nhập text để AI tóm tắt.
+Giới hạn số lần sử dụng miễn phí.
+✅ Registered Users
+
+Đăng ký qua email/password hoặc OAuth2 (Google, GitHub).
+Quản lý lịch sử tóm tắt.
+Tùy chỉnh độ dài summary (ngắn/trung bình/chi tiết).
+Đánh dấu favorite các bản tóm tắt.
+Chia sẻ summary qua email/social media.
+✅ Premium Users
+
+Không giới hạn số lần tóm tắt.
+Trích xuất key highlights từ bài viết.
+API key riêng để tích hợp vào ứng dụng khác.
+✅ Admin
+
+Quản lý tài khoản người dùng.
+Kiểm soát API usage (quota & rate limiting).
+Theo dõi performance hệ thống.
+2.2 Chức năng chính & công nghệ
+🔹 AI Tóm tắt bài viết
+🛠 LangChain + OpenAI GPT-4 + Hugging Face (BART, Pegasus) + FastAPI
+
+Input: URL, text hoặc file upload (PDF, DOCX).
+Output: Summary theo độ dài tùy chỉnh.
+Tóm tắt theo context: Phân loại bài viết (tin tức, blog, nghiên cứu) và chọn model phù hợp.
+Lọc nội dung trùng lặp bằng TF-IDF / BERT embeddings.
+🔹 Hỗ trợ đa ngôn ngữ
+🛠 DeepL API + FastAPI + Hugging Face MarianMT
+
+Tự động nhận diện ngôn ngữ bài viết.
+Tóm tắt bằng ngôn ngữ gốc hoặc dịch sang tiếng Anh/VN.
+🔹 Dashboard người dùng
+🛠 Next.js + TanStack Query + Zustand (State Management)
+
+Hiển thị lịch sử summary.
+Cho phép export PDF/CSV.
+Hiển thị usage statistics.
+🔹 API dành cho Developer
+🛠 NestJS + Swagger + API Gateway (Kong/Traefik)
+
+Cung cấp API Key cho Devs.
+Rate-limiting để tránh lạm dụng.
+2.3 Mô hình kinh doanh & Subscription
+💰 Monetization Model
+🛠 Stripe + PayPal SDK
+
+Free Tier: 5 summaries/ngày.
+Premium: Không giới hạn, truy cập API.
+Enterprise: API cấp cao, ưu tiên xử lý.
+3. DevOps & CI/CD
+3.1 CI/CD Pipeline
+🛠 GitHub Actions + ArgoCD + Kubernetes
+
+Frontend:
+Build Next.js → Test với Jest → Deploy lên Vercel.
+Backend:
+Build NestJS / FastAPI → Docker Image → Push lên ECR/GCR.
+Deploy vào Kubernetes cluster với Helm charts.
+3.2 Containerization & Orchestration
+🛠 Docker + Kubernetes + Istio
+
+Docker Compose cho dev environment.
+Kubernetes (EKS/GKE) để quản lý services.
+Istio Service Mesh để kiểm soát traffic.
+3.3 Logging & Monitoring
+🛠 Prometheus + Grafana + Loki + Sentry
+
+Prometheus: Theo dõi CPU, RAM, network.
+Grafana Dashboards: Quan sát API latency.
+Loki: Centralized logging.
+Sentry: Error tracking.
+3.4 Security & Performance
+🛠 Nginx + OAuth2 + Redis Caching
+
+Nginx làm API Gateway.
+OAuth2 / JWT bảo mật authentication.
+Redis cache responses để giảm tải backend.
+4. Database & Scalability
+4.1 Database Selection
+🛠 PostgreSQL + MongoDB + Redis
+
+PostgreSQL: Lưu trữ user accounts, payments.
+MongoDB: Lưu trữ nội dung AI summaries.
+Redis: Cache AI responses.
+4.2 Scaling Strategy
+🛠 Vitess (Sharded MySQL) / CockroachDB# AI-Powered Article Summarizer - Full Detailed Plan
+
+## 1. Tổng quan dự án
+- **Mục tiêu:** Xây dựng nền tảng tóm tắt bài viết AI hỗ trợ đa ngôn ngữ, có dashboard người dùng, API cho devs, và mô hình kinh doanh subscription.
+- **Công nghệ cốt lõi:**
+  - **Frontend:** Next.js + TailwindCSS + Chakra UI
+  - **Backend:** Node.js (NestJS) + FastAPI (Python)
+  - **Database:** PostgreSQL + MongoDB + Redis
+  - **AI Engine:** OpenAI API + LangChain + HuggingFace Models
+  - **DevOps:** Kubernetes (EKS/GKE/AKS) + ArgoCD + Istio + Terraform
+
+---
+
+## 2. Nghiệp vụ & Công nghệ
+
+### 2.1 Người dùng & phân quyền
+#### 🛠 Công nghệ: NestJS + PostgreSQL + JWT + OAuth2 + Keycloak
+✅ **Guest Users**
+- Gửi link bài viết hoặc nhập text để AI tóm tắt.
+- Giới hạn số lần sử dụng miễn phí.
+
+✅ **Registered Users**
+- Đăng ký qua email/password hoặc OAuth2 (Google, GitHub).
+- Quản lý lịch sử tóm tắt.
+- Tùy chỉnh độ dài summary (ngắn/trung bình/chi tiết).
+- Đánh dấu favorite các bản tóm tắt.
+- Chia sẻ summary qua email/social media.
+
+✅ **Premium Users**
+- Không giới hạn số lần tóm tắt.
+- Trích xuất key highlights từ bài viết.
+- API key riêng để tích hợp vào ứng dụng khác.
+
+✅ **Admin**
+- Quản lý tài khoản người dùng.
+- Kiểm soát API usage (quota & rate limiting).
+- Theo dõi performance hệ thống.
+
+---
+
+### 2.2 Chức năng chính & công nghệ
+#### 🔹 AI Tóm tắt bài viết
+🛠 **LangChain + OpenAI GPT-4 + Hugging Face (BART, Pegasus) + FastAPI**
+- **Input**: URL, text hoặc file upload (PDF, DOCX).
+- **Output**: Summary theo độ dài tùy chỉnh.
+- **Tóm tắt theo context**: Phân loại bài viết (tin tức, blog, nghiên cứu) và chọn model phù hợp.
+- **Lọc nội dung trùng lặp** bằng **TF-IDF / BERT embeddings**.
+
+#### 🔹 Hỗ trợ đa ngôn ngữ
+🛠 **DeepL API + FastAPI + Hugging Face MarianMT**
+- Tự động nhận diện ngôn ngữ bài viết.
+- Tóm tắt bằng ngôn ngữ gốc hoặc dịch sang tiếng Anh/VN.
+
+#### 🔹 Dashboard người dùng
+🛠 **Next.js + TanStack Query + Zustand (State Management)**
+- Hiển thị lịch sử summary.
+- Cho phép export PDF/CSV.
+- Hiển thị usage statistics.
+
+#### 🔹 API dành cho Developer
+🛠 **NestJS + Swagger + API Gateway (Kong/Traefik)**
+- Cung cấp API Key cho Devs.
+- Rate-limiting để tránh lạm dụng.
+
+---
+
+### 2.3 Mô hình kinh doanh & Subscription
+#### 💰 Monetization Model
+🛠 **Stripe + PayPal SDK**
+- **Free Tier:** 5 summaries/ngày.
+- **Premium:** Không giới hạn, truy cập API.
+- **Enterprise:** API cấp cao, ưu tiên xử lý.
+
+---
+
+## 3. DevOps & CI/CD
+
+### 3.1 CI/CD Pipeline
+🛠 **GitHub Actions + ArgoCD + Kubernetes**
+- **Frontend:**
+  - Build Next.js → Test với Jest → Deploy lên **Vercel**.
+- **Backend:**
+  - Build NestJS / FastAPI → Docker Image → Push lên **ECR/GCR**.
+  - Deploy vào **Kubernetes cluster** với **Helm charts**.
+
+---
+
+### 3.2 Containerization & Orchestration
+🛠 **Docker + Kubernetes + Istio**
+- **Docker Compose** cho dev environment.
+- **Kubernetes (EKS/GKE)** để quản lý services.
+- **Istio Service Mesh** để kiểm soát traffic.
+
+---
+
+### 3.3 Logging & Monitoring
+🛠 **Prometheus + Grafana + Loki + Sentry**
+- **Prometheus**: Theo dõi CPU, RAM, network.
+- **Grafana Dashboards**: Quan sát API latency.
+- **Loki**: Centralized logging.
+- **Sentry**: Error tracking.
+
+---
+
+### 3.4 Security & Performance
+🛠 **Nginx + OAuth2 + Redis Caching**
+- **Nginx** làm API Gateway.
+- **OAuth2 / JWT** bảo mật authentication.
+- **Redis** cache responses để giảm tải backend.
+
+---
+
+## 4. Database & Scalability
+### 4.1 Database Selection
+🛠 **PostgreSQL + MongoDB + Redis**
+- **PostgreSQL**: Lưu trữ user accounts, payments.
+- **MongoDB**: Lưu trữ nội dung AI summaries.
+- **Redis**: Cache AI responses.
+
+### 4.2 Scaling Strategy
+🛠 **Vitess (Sharded MySQL) / CockroachDB**
+- **Read replicas** để scale PostgreSQL.
+- **Horizontal scaling** với **MongoDB Sharding**.
+
+---
+
+## 5. Deployment Roadmap
+
+| Tuần | Nhiệm vụ |
+|------|----------|
+| 1 | Thiết kế database, phân quyền user, auth system |
+| 2 | Xây dựng backend API (NestJS) & AI summarization |
+| 3 | Phát triển frontend (Next.js) & user dashboard |
+| 4 | Thiết lập Docker, Kubernetes & CI/CD pipelines |
+| 5 | Tích hợp OpenAI API & Hugging Face models |
+| 6 | Đưa vào Kubernetes cluster & scaling |
+| 7 | Cấu hình monitoring, logging & security |
+| 8 | Triển khai bản Beta & tối ưu |
+
+---
+
+## 🔥 Kết luận
+Dự án này sử dụng **kiến trúc hiện đại** và **DevOps chuyên sâu** với:
+✅ **AI mạnh mẽ:** LangChain + OpenAI + HuggingFace
+✅ **Scalability cao:** Kubernetes + Istio + PostgreSQL Sharding
+✅ **Monitoring toàn diện:** Prometheus + Grafana + Loki
+✅ **Tối ưu bảo mật:** OAuth2, API Gateway, Rate Limiting
+✅ **Chiến lược kinh doanh rõ ràng:** Freemium + Premium Subscription
+
+🚀 Bạn muốn triển khai chi tiết phần nào trước?
+
+
+
+Read replicas để scale PostgreSQL.
+Horizontal scaling với MongoDB Sharding.
+5. Deployment Roadmap
+Tuần	Nhiệm vụ
+1	Thiết kế database, phân quyền user, auth system
+2	Xây dựng backend API (NestJS) & AI summarization
+3	Phát triển frontend (Next.js) & user dashboard
+4	Thiết lập Docker, Kubernetes & CI/CD pipelines
+5	Tích hợp OpenAI API & Hugging Face models
+6	Đưa vào Kubernetes cluster & scaling
+7	Cấu hình monitoring, logging & security
+8	Triển khai bản Beta & tối ưu
+🔥 Kết luận
+Dự án này sử dụng kiến trúc hiện đại và DevOps chuyên sâu với:
+✅ AI mạnh mẽ: LangChain + OpenAI + HuggingFace
+✅ Scalability cao: Kubernetes + Istio + PostgreSQL Sharding
+✅ Monitoring toàn diện: Prometheus + Grafana + Loki
+✅ Tối ưu bảo mật: OAuth2, API Gateway, Rate Limiting
+✅ Chiến lược kinh doanh rõ ràng: Freemium + Premium Subscription
